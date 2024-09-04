@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+  <audio  controls="controls">
+    <source src="Unsaved new song 71__2024-09-04_02-06-39.mp3" type="audio/mp3" >
+    
+  </audio>
+  <style>
+    body {
+      background-color: gray;
+    }
+    #parede {
+      background-image: url("_6d22d342-ffc2-4dfd-91b9-b5e8c5cf2380~2.jpeg");
+      position: absolute;
+      z-index: 2;
+      margin-left: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      width: 390px;
+      height: 450px;
+      border: solid 2px black;
+    }
+  .parede.path {
+    offset-path: rect(390px auto 450px auto);
+  }
+    .tanque.path {
+    offset-path: rect(50px auto 50px auto);
+  }
+  
+   #img1 {
+      position: absolute;
+       z-index: 2;
+       width: 50px;
+        height: 50px;
+     margin-top: 170px;
+     margin-left: 170px;
+     mix-blend-mode: ;
+     
+       
+   }
+    #comandos {
+      width: 350px;
+      height: 200px;
+      border: 2px solid black;
+      border-radius: 10px;
+      position: absolute;
+      margin-top: 110%;
+      margin-left: 8%;
+    }
+    #cima {
+        position: absolute;
+      z-index: 1;
+        margin-left: 70px;
+      margin-top: 1%;
+      width: 60px;
+      height: 60px;
+     border-radius: 100px;
+       border: 5px solid black;
+     border-left: none;
+     border-top: none;
+    }
+  
+   #baixo {
+     position: absolute;
+      z-index: 1;
+     margin-left: 70px;
+      margin-top: 39%;
+     width: 60px;
+      height: 60px;
+     border-radius: 100px;
+      border: 5px solid black;
+     border-left: none;
+     border-top: none;
+    }
+  
+   #frente {
+       position: absolute;
+      z-index: 1;
+     margin-left: 130px;
+      margin-top: 70px;
+     width: 60px;
+      height: 60px;
+     border-radius: 100px;
+     border: 5px solid black;
+     border-left: none;
+     border-top: none;
+    }
+  
+   #tras {
+       position: absolute;
+      z-index: 1;
+     margin-left: 2%;
+      margin-top: 70px;
+     width: 60px;
+      height: 60px;
+     border-radius: 100px;
+      border: 5px solid black;
+     border-left: none;
+     border-top: none;
+    }
+
+  #disparo {
+    position: absolute;
+    z-indez: 2;
+    margin-top: 170px;
+     margin-left: 170px;
+  }
+   #fogo{
+       position: absolute;
+      z-index: 1;
+     margin-left: 250px;
+      margin-top: 20%;
+     width: 80px;
+      height: 80px;
+     border-radius: 100px;
+     background-color: red;
+      border: 5px solid black;
+     border-left: none;
+     border-top: none;
+    }
+  
+   audio {
+     position: absolute;
+     z-index: 1;
+     margin: 20px 20px;
+   }
+  
+   
+  </style>
+</head>
+<body>
+  <p id="body"></p>
+  <div id="disparo"></div>
+  
+  <div  id="parede" class="parede.path"></div>
+    <img id="img1" class="tanque.path"src="download.png">
+  
+  <div id="comandos">
+    <button id="tras" onclick="tras()" onpress>Esq.</button>
+    <button id="baixo" onclick="baixo()">Baixo</button>
+    <button id="cima" onclick="cima()">Cima</button>
+    <button id="frente" onclick="frente()">Dir.</button>
+    <button id="fogo" onclick="atirar()">Fogo</button>
+  </div>
+</body>
+<script>
+  var cont = 170;
+  var cont2 = 170;
+ 
+ function frente() {
+   
+    cont = cont + 5;
+    var a = document.getElementById("img1");
+    a.style.transform = "rotate(90deg)";
+    a.style.marginLeft =  cont+"px";
+    var b = document.getElementById("disparo");
+    b.style.marginLeft =  cont+"px";
+   b.style.transform = "rotate(90deg)";
+   var c = document.getElementById("frente");
+    c.style.border = "1px solid black";
+   c.style.borderLeft = "none";
+   c.style.borderTop = "none";
+   setTimeout( () => {
+       c.style.border = "5px solid black";
+       c.style.borderLeft = "none";
+       c.style.borderTop = "none";}, 250);
+   if (cont == 350) {
+     cont = 345;
+   }
+   else {
+     "";
+   }
+   }
+ function baixo() {
+   cont2 = cont2 + 5;
+   
+    var a = document.getElementById("img1");
+    a.style.transform = "rotate(180deg)";
+    a.style.marginTop = cont2+"px";
+    var b = document.getElementById("disparo");
+    b.style.marginTop =  cont +"px";
+    b.style.transform = "rotate(180deg)";
+    var c = document.getElementById("baixo");
+    c.style.border = "1px solid black";
+   c.style.borderLeft = "none";
+   c.style.borderTop = "none";
+   setTimeout( () => {
+       c.style.border = "5px solid black";
+       c.style.borderLeft = "none";
+       c.style.borderTop = "none";}, 250);
+   if (cont2 == 410) {
+     cont2 = 405;
+   }
+   else {
+     "";
+   }
+   }
+
+ function cima() {
+   cont2 = cont2 - 5;
+    var a = document.getElementById("img1");
+    a.style.transform = "rotate(0deg)";
+    a.style.marginTop = cont2 + "px";
+    var b = document.getElementById("disparo");
+    b.style.marginTop =  cont+"px";
+    b.style.transform = "rotate(180deg)";
+    var c = document.getElementById("cima");
+    c.style.border = "1px solid black";
+   c.style.borderLeft = "none";
+   c.style.borderTop = "none";
+   setTimeout( () => {
+       c.style.border = "5px solid black";
+       c.style.borderLeft = "none";
+       c.style.borderTop = "none";}, 250);
+   if (cont2 == 15) {
+     cont2 = 20;
+   }
+   else {
+     "";
+   }
+   }
+
+ function tras() {
+   cont = cont - 5;
+    var a = document.getElementById("img1");
+    a.style.transform = "rotate(270deg)";
+    a.style.marginLeft = cont + "px";
+    var b = document.getElementById("disparo");
+    b.style.marginLeft =  cont+"px";
+    b.style.transform = "rotate(180deg)";
+    var c = document.getElementById("tras");
+    c.style.border = "1px solid black";
+   c.style.borderLeft = "none";
+   c.style.borderTop = "none";
+   setTimeout( () => {
+       c.style.border = "5px solid black";
+       c.style.borderLeft = "none";
+       c.style.borderTop = "none";}, 250);
+   if (cont == 20) {
+     cont = 25;
+   }
+   else {
+     "";
+   }
+   }
+
+
+function atirar() {
+  var a = document.getElementById("img1");
+  var disparo =  '<img id="tiro" width="10" height="10" src="images (1)~2.jpeg">';
+  var audio = document.querySelector("audio");
+  var topo = 15;
+  var baixo = 410;
+
+    
+  if (a.style.transform == "rotate(180deg)"){
+   //baixo
+    const left = 9;
+    const contF= cont;
+    const cont2F = cont2;
+    var top = 50;
+    audio.pause();
+    setInterval(function () {
+       
+        document.getElementById("parede").innerHTML = "" ;
+        document.getElementById("parede").innerHTML = disparo;
+        var tiro = document.getElementById("tiro");
+        tiro.style.marginLeft = contF+left+'px';
+        tiro.style.marginTop = cont2F+top+'px';
+        if (cont2F+top < 410) {
+          top = top+1;
+          
+        }
+          else {
+            
+            document.getElementById("parede").removeChild(tiro);
+            
+          }
+           
+        }, 10);
+    audio.play();
+     setTimeout(function () {
+       audio.pause();
+       audio.currentTime = 0;
+    }, 500);
+  }
+  
+  //cima
+  else if (a.style.transform == "rotate(0deg)"){
+    const left = 9;
+    const contF= cont;
+    const cont2F = cont2;
+    var top = 35;
+    audio.pause();
+    setInterval(function () {
+       
+        document.getElementById("parede").innerHTML = "" ;
+        document.getElementById("parede").innerHTML = disparo;
+        var tiro = document.getElementById("tiro");
+        tiro.style.marginLeft = contF+left+'px';
+        tiro.style.marginTop = cont2F-top+'px';
+        if (cont2F-top > 20) {
+          top = top+1;
+          
+        }
+          else {
+            
+            document.getElementById("parede").removeChild(tiro);
+          }
+           
+        }, 10);
+    audio.play();
+     setTimeout(function () {
+       audio.pause();
+       audio.currentTime = 0;
+    }, 500);
+  }
+  
+ //frente
+  else if (a.style.transform == "rotate(90deg)"){
+    
+    var left = 50;
+    const contF= cont;
+    const cont2F = cont2;
+    const top = 6;
+    audio.pause();
+    setInterval(function () {
+       
+        document.getElementById("parede").innerHTML = "" ;
+        document.getElementById("parede").innerHTML = disparo;
+        var tiro = document.getElementById("tiro");
+        tiro.style.marginLeft = contF+left+'px';
+        tiro.style.marginTop = cont2F+top+'px';
+        if (contF+left < 350) {
+          left = left+1;
+          
+        }
+          else {
+            
+            document.getElementById("parede").removeChild(tiro);
+          }
+           
+        }, 10);
+    audio.play();
+     setTimeout(function () {
+       audio.pause();
+       audio.currentTime = 0;
+    }, 500);
+  }
+  
+  //tras
+  else if (a.style.transform == "rotate(270deg)"){
+    
+    
+    var left = 10;
+    const contF= cont;
+    const cont2F = cont2;
+    const top = 9;
+    
+    setInterval(function () {
+       
+        document.getElementById("parede").innerHTML = "" ;
+        document.getElementById("parede").innerHTML = disparo;
+        var tiro = document.getElementById("tiro");
+        tiro.style.marginLeft = contF+left+'px';
+        tiro.style.marginTop = cont2F+top+'px';
+        tiro.style.position = "absolute";
+        tiro.style.zIndex = "4";
+        if (contF+left > 20) {
+          left = left-1;
+          
+        }
+          else {
+            
+            document.getElementById("parede").removeChild(tiro);
+          }
+           
+        }, 10);
+    audio.play();
+    setTimeout(function () {
+       audio.pause();
+       audio.currentTime = 0;
+    }, 500);
+  }
+  
+  else {
+    "";
+  }
+}
+requestAnimationFrame(atirar);
+  
+
+</script>
+</html>
