@@ -4,8 +4,12 @@
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <title>Hello, World!</title>
-  <audio  controls="controls">
+  <audio  id="audio" controls="controls">
     <source src="Unsaved new song 71__2024-09-04_02-06-39.mp3" type="audio/mp3" >
+    
+  </audio>
+  <audio id="musica" controls="controls">
+    <source src="StockTune-Confronto de Queima de Corda_1725481264.mp3" type="audio/mp3" >
     
   </audio>
   <style>
@@ -148,6 +152,7 @@
   </div>
 </body>
 <script>
+  
   var cont = 170;
   var cont2 = 170;
  
@@ -177,7 +182,8 @@
    }
  function baixo() {
    cont2 = cont2 + 5;
-   
+    var musica = document.querySelector("#musica");
+    musica.play();
     var a = document.getElementById("img1");
     a.style.transform = "rotate(180deg)";
     a.style.marginTop = cont2+"px";
@@ -252,7 +258,7 @@
 function atirar() {
   var a = document.getElementById("img1");
   var disparo =  '<img id="tiro" width="10" height="10" src="images (1)~2.jpeg">';
-  var audio = document.querySelector("audio");
+  var audio = document.querySelector("#audio");
   var topo = 15;
   var baixo = 410;
 
@@ -391,7 +397,9 @@ function atirar() {
     "";
   }
 }
-requestAnimationFrame(atirar);
+
+  
+
   
 
 </script>
