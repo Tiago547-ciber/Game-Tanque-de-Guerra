@@ -42,10 +42,16 @@
         height: 50px;
      margin-top: 170px;
      margin-left: 170px;
-     mix-blend-mode: ;
-     
-       
    }
+  #img2 {
+      position: absolute;
+       z-index: 2;
+       width: 100px;
+        height: 100px;
+     margin-top: 170px;
+     margin-left: 170px;
+  }
+  
     #comandos {
       width: 350px;
       height: 200px;
@@ -152,10 +158,25 @@
   </div>
 </body>
 <script>
-  
+/*Variaveis responsaveis por contar a quantidade
+de vezes que os botões foram apertados. Dependendo
+de quntas vezes cada botao for apertado, resultara 
+em uma animacao de tanque rival diferente.*/
+
+  var quantC = 0;
+  var quantB = 0;
+  var quantF = 0;
+  var quantT = 0;
+
+/*Estas variaveis controlam a posicao do tanque na tela
+ao somar ou subtrair cont, o objeto vai para frente ou 
+para tras. Ao passo que ao somar ou subtrair cont2
+o objeto vai para cima ou para baixo.*/
   var cont = 170;
   var cont2 = 170;
  
+
+/* funções de movimemto frente, tras, cima e baixo*/
  function frente() {
    
     cont = cont + 5;
@@ -180,6 +201,7 @@
      "";
    }
    }
+
  function baixo() {
    cont2 = cont2 + 5;
     var musica = document.querySelector("#musica");
@@ -254,7 +276,7 @@
    }
    }
 
-
+/*Cria a animacao de disparo*/
 function atirar() {
   var a = document.getElementById("img1");
   var disparo =  '<img id="tiro" width="10" height="10" src="images (1)~2.jpeg">';
@@ -262,7 +284,14 @@ function atirar() {
   var topo = 15;
   var baixo = 410;
 
-    
+   /*A partir daqui a logica é posicionar o disparo
+um pouco a frente do tanque e dai seguir afastando o 
+projetil do tanque. Para isso primeiro criei uma condição
+pata saber qual a posição dos canhões.  Exemplo: se o canhão
+estiver para baixo, o projetil tera sua margin top um pouco a mais
+que o tanque (lembrando que a margin top é definida pela constante 
+cont2F + variavel top). a partir dai é feito um calculo obedecendo
+a condicao, onde a margin top do projetil é acrecido ate o  limite da tela.*/
   if (a.style.transform == "rotate(180deg)"){
    //baixo
     const left = 9;
@@ -398,9 +427,7 @@ function atirar() {
   }
 }
 
-  
 
   
-
 </script>
 </html>
